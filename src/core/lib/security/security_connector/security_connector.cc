@@ -847,7 +847,7 @@ static grpc_error* ssl_check_peer(grpc_security_connector* sc,
                                   const char* peer_name, const tsi_peer* peer,
                                   grpc_auth_context** auth_context) {
   /* Check the ALPN. */
-  const tsi_peer_property* p =
+  /*const tsi_peer_property* p =
       tsi_peer_get_property_by_name(peer, TSI_SSL_ALPN_SELECTED_PROTOCOL);
   if (p == nullptr) {
     return GRPC_ERROR_CREATE_FROM_STATIC_STRING(
@@ -856,7 +856,7 @@ static grpc_error* ssl_check_peer(grpc_security_connector* sc,
   if (!grpc_chttp2_is_alpn_version_supported(p->value.data, p->value.length)) {
     return GRPC_ERROR_CREATE_FROM_STATIC_STRING(
         "Cannot check peer: invalid ALPN value.");
-  }
+  }*/
 
   /* Check the peer name if specified. */
   if (peer_name != nullptr && !ssl_host_matches_name(peer, peer_name)) {
